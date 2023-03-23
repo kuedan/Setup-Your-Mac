@@ -39,7 +39,7 @@
 scriptVersion="1.8.1"
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/
 scriptLog="${4:-"/var/log/org.churchofjesuschrist.log"}"                        # Parameter 4: Script Log Location [ /var/log/org.churchofjesuschrist.log ] (i.e., Your organization's default location for client-side logs)
-debugMode="${5:-"verbose"}"                                                     # Parameter 5: Debug Mode [ verbose (default) | true | false ]
+debugMode="${5:-"false"}"                                                     # Parameter 5: Debug Mode [ verbose (default) | true | false ]
 welcomeDialog="${6:-"userInput"}"                                               # Parameter 6: Welcome dialog [ userInput (default) | video | false ]
 completionActionOption="${7:-"Restart Attended"}"                               # Parameter 7: Completion Action [ wait | sleep (with seconds) | Shut Down | Shut Down Attended | Shut Down Confirm | Restart | Restart Attended (default) | Restart Confirm | Log Out | Log Out Attended | Log Out Confirm ]
 requiredMinimumBuild="${8:-"disabled"}"                                         # Parameter 8: Required Minimum Build [ disabled (default) | 22D ] (i.e., Your organization's required minimum build of macOS to allow users to proceed; use "22D" for macOS 13.2.x)
@@ -448,31 +448,8 @@ welcomeJSON='{
             "default" : "Please select your department",
             "values" : [
                 "Please select your department",
-                "Asset Management",
-                "Australia Area Office",
-                "Board of Directors",
-                "Business Development",
-                "Corporate Communications",
-                "Creative Services",
-                "Customer Service / Customer Experience",
-                "Engineering",
-                "Finance / Accounting",
-                "General Management",
-                "Human Resources",
-                "Information Technology / Technology",
-                "Investor Relations",
-                "Legal",
-                "Marketing",
-                "Operations",
-                "Product Management",
-                "Production",
-                "Project Management Office",
-                "Purchasing / Sourcing",
-                "Quality Assurance",
-                "Risk Management",
-                "Sales",
-                "Strategic Initiatives & Programs",
-                "Technology"
+                "Student",
+                "Staff",
             ]
         }
     ],
@@ -605,76 +582,65 @@ function policyJSONConfiguration() {
             policyJSON='
             {
                 "steps": [
-                    {
-                        "listitem": "Rosetta",
-                        "icon": "8bac19160fabb0c8e7bac97b37b51d2ac8f38b7100b6357642d9505645d37b52",
-                        "progresstext": "Rosetta enables a Mac with Apple silicon to use apps built for a Mac with an Intel processor.",
-                        "trigger_list": [
-                            {
-                                "trigger": "rosettaInstall",
-                                "validation": "None"
-                            },
-                            {
-                                "trigger": "rosetta",
-                                "validation": "Local"
-                            }
-                        ]
-                    },
-                    {
-                        "listitem": "FileVault Disk Encryption",
-                        "icon": "f9ba35bd55488783456d64ec73372f029560531ca10dfa0e8154a46d7732b913",
-                        "progresstext": "FileVault is built-in to macOS and provides full-disk encryption to help prevent unauthorized access to your Mac.",
-                        "trigger_list": [
-                            {
-                                "trigger": "filevault",
-                                "validation": "Local"
-                            }
-                        ]
-                    },
-                    {
-                        "listitem": "Sophos Endpoint",
-                        "icon": "c70f1acf8c96b99568fec83e165d2a534d111b0510fb561a283d32aa5b01c60c",
-                        "progresstext": "You’ll enjoy next-gen protection with Sophos Endpoint which doesn’t rely on signatures to catch malware.",
-                        "trigger_list": [
-                            {
-                                "trigger": "sophosEndpoint",
-                                "validation": "/Applications/Sophos/Sophos Endpoint.app/Contents/Info.plist"
-                            }
-                        ]
-                    },
-                    {
-                        "listitem": "Sophos Endpoint Services (Remote)",
-                        "icon": "c05d087189f0b25a94f02eeb43b0c5c928e5e378f2168f603554bce2b5c71209",
-                        "progresstext": "Remotely validating Sophos Endpoint services …",
-                        "trigger_list": [
-                            {
-                                "trigger": "symvSophosEndpointRTS",
-                                "validation": "Remote"
-                            }
-                        ]
-                    },
-                    {
-                        "listitem": "Palo Alto GlobalProtect",
-                        "icon": "ea794c5a1850e735179c7c60919e3b51ed3ed2b301fe3f0f27ad5ebd394a2e4b",
-                        "progresstext": "Use Palo Alto GlobalProtect to establish a Virtual Private Network (VPN) connection to Church headquarters.",
-                        "trigger_list": [
-                            {
-                                "trigger": "globalProtect",
-                                "validation": "/Applications/GlobalProtect.app/Contents/Info.plist"
-                            }
-                        ]
-                    },
-                    {
-                        "listitem": "Palo Alto GlobalProtect Services (Remote)",
-                        "icon": "709e8bdf0019e8faf9df85ec0a68545bfdb8bfa1227ac9bed9bba40a1fa8ff42",
-                        "progresstext": "Remotely validating Palo Alto GlobalProtect services …",
-                        "trigger_list": [
-                            {
-                                "trigger": "symvGlobalProtect",
-                                "validation": "Remote"
-                            }
-                        ]
-                    },
+                 #   {
+                 #       "listitem": "Rosetta",
+                 #       "icon": "8bac19160fabb0c8e7bac97b37b51d2ac8f38b7100b6357642d9505645d37b52",
+                 #       "progresstext": "Rosetta enables a Mac with Apple silicon to use apps built for a Mac with an Intel processor.",
+                 #       "trigger_list": [
+                 #           {
+                 #               "trigger": "rosettaInstall",
+                 #               "validation": "None"
+                 #           },
+                 #           {
+                 #               "trigger": "rosetta",
+                 #               "validation": "Local"
+                 #           }
+                 #       ]
+                 #   },
+                  {
+            "listitem": "Lanschool",
+            "icon": "8bac19160fabb0c8e7bac97b37b51d2ac8f38b7100b6357642d9505645d37b52",
+            "progresstext": "Lanschool is a remote monitor application",
+            "trigger_list": [
+                {
+                    "trigger": "lanschool",
+                    "validation": "None"
+                }
+            ]
+        },
+        {
+            "listitem": "Google Chrome",
+            "icon": "12d3d198f40ab2ac237cff3b5cb05b09f7f26966d6dffba780e4d4e5325cc701",
+            "progresstext": "Google Chrome is a browser that combines a minimal design with sophisticated technology to make the Web faster.",
+            "trigger_list": [
+                {
+                    "trigger": "chrome",
+                    "validation": "None"
+                }
+            ]
+        },
+                {
+            "listitem": "Printer Drivers",
+            "icon": "f9ba35bd55488783456d64ec73372f029560531ca10dfa0e8154a46d7732b913",
+            "progresstext": "Installs the Kyocera Printer drivers",
+            "trigger_list": [
+                {
+                    "trigger": "Kyocera",
+                    "validation": "None"
+                }
+            ]
+        },
+                 {
+            "listitem": "Enable ARD",
+            "icon": "f9ba35bd55488783456d64ec73372f029560531ca10dfa0e8154a46d7732b913",
+            "progresstext": "Enable Apple Remote Desktop",
+            "trigger_list": [
+                {
+                    "trigger": "ARD",
+                    "validation": "None"
+                }
+            ]
+        },       
                     {
                         "listitem": "Final Configuration",
                         "icon": "00d7c19b984222630f20b6821425c3548e4b5094ecd846b03bde0994aaf08826",
