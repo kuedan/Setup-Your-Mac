@@ -582,66 +582,65 @@ function policyJSONConfiguration() {
             policyJSON='
             {
                 "steps": [
-                 #   {
-                 #       "listitem": "Rosetta",
-                 #       "icon": "8bac19160fabb0c8e7bac97b37b51d2ac8f38b7100b6357642d9505645d37b52",
-                 #       "progresstext": "Rosetta enables a Mac with Apple silicon to use apps built for a Mac with an Intel processor.",
-                 #       "trigger_list": [
-                 #           {
-                 #               "trigger": "rosettaInstall",
-                 #               "validation": "None"
-                 #           },
-                 #           {
-                 #               "trigger": "rosetta",
-                 #               "validation": "Local"
-                 #           }
-                 #       ]
-                 #   },
-                  {
-            "listitem": "Lanschool",
-            "icon": "8bac19160fabb0c8e7bac97b37b51d2ac8f38b7100b6357642d9505645d37b52",
-            "progresstext": "Lanschool is a remote monitor application",
-            "trigger_list": [
-                {
-                    "trigger": "lanschool",
-                    "validation": "None"
-                }
-            ]
-        },
-        {
-            "listitem": "Google Chrome",
-            "icon": "12d3d198f40ab2ac237cff3b5cb05b09f7f26966d6dffba780e4d4e5325cc701",
-            "progresstext": "Google Chrome is a browser that combines a minimal design with sophisticated technology to make the Web faster.",
-            "trigger_list": [
-                {
-                    "trigger": "chrome",
-                    "validation": "None"
-                }
-            ]
-        },
-                {
-            "listitem": "Printer Drivers",
-            "icon": "f9ba35bd55488783456d64ec73372f029560531ca10dfa0e8154a46d7732b913",
-            "progresstext": "Installs the Kyocera Printer drivers",
-            "trigger_list": [
-                {
-                    "trigger": "Kyocera",
-                    "validation": "None"
-                }
-            ]
-        },
-                 {
-            "listitem": "Enable ARD",
-            "icon": "f9ba35bd55488783456d64ec73372f029560531ca10dfa0e8154a46d7732b913",
-            "progresstext": "Enable Apple Remote Desktop",
-            "trigger_list": [
-                {
-                    "trigger": "ARD",
-                    "validation": "None"
-                }
-            ]
-        },       
                     {
+                        "listitem": "Rosetta",
+                        "icon": "8bac19160fabb0c8e7bac97b37b51d2ac8f38b7100b6357642d9505645d37b52",
+                        "progresstext": "Rosetta enables a Mac with Apple silicon to use apps built for a Mac with an Intel processor.",
+                        "trigger_list": [
+                            {
+                                "trigger": "rosettaInstall",
+                                "validation": "None"
+                            },
+                            {
+                                "trigger": "rosetta",
+                                "validation": "Local"
+                            }
+                        ]
+                    },
+                    {
+                        "listitem": "LanSchool",
+                        "icon": "f9ba35bd55488783456d64ec73372f029560531ca10dfa0e8154a46d7732b913",
+                        "progresstext": "LanSchool is for remote management of your laptop",
+                        "trigger_list": [
+                            {
+                                "trigger": "lanschool",
+                                "validation": "None"
+                            }
+                        ]
+                    },
+                    {
+                        "listitem": "Google Chrome",
+                        "icon": "12d3d198f40ab2ac237cff3b5cb05b09f7f26966d6dffba780e4d4e5325cc701",
+                        "progresstext": "Google Chrome is a browser that combines a minimal design with sophisticated technology to make the Web faster.",
+                        "trigger_list": [
+                            {
+                                "trigger": "chrome",
+                                "validation": "/Applications/Google Chrome.app/Contents/Info.plist"
+                            }
+                        ]
+                    },                    {
+                        "listitem": "Printer Drivers",
+                        "icon": "c05d087189f0b25a94f02eeb43b0c5c928e5e378f2168f603554bce2b5c71209",
+                        "progresstext": "Installs the Kyocera Printer drivers",
+                        "trigger_list": [
+                            {
+                                "trigger": "Kyocera",
+                                "validation": "None"
+                            }
+                        ]
+                    },
+                    {
+                        "listitem": "Enable ARD",
+                        "icon": "ea794c5a1850e735179c7c60919e3b51ed3ed2b301fe3f0f27ad5ebd394a2e4b",
+                        "progresstext": "Enable Apple Remote Desktop.",
+                        "trigger_list": [
+                            {
+                                "trigger": "ARD",
+                                "validation": "None"
+                            }
+                        ]
+                    },
+                  {
                         "listitem": "Final Configuration",
                         "icon": "00d7c19b984222630f20b6821425c3548e4b5094ecd846b03bde0994aaf08826",
                         "progresstext": "Finalizing Configuration …",
@@ -671,7 +670,6 @@ function policyJSONConfiguration() {
             }
             '
             ;;
-
         "Recommended" )
 
             policyJSON='
