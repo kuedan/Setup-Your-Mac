@@ -431,7 +431,7 @@ welcomeJSON='{
         {   "title" : "Asset Tag",
             "required" : true,
             "prompt" : "Please enter the seven-digit Asset Tag",
-            "regex" : "^(AP|IP|CD)?[0-9]{7,}$",
+            "regex" : "^(BH)?[0-9]{5,}$",
             "regexerror" : "Please enter (at least) seven digits for the Asset Tag, optionally preceed by either AP, IP or CD."
         }
     ],
